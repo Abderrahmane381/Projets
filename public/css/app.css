@@ -730,6 +730,7 @@ nav {
         .auth-buttons {
             display: flex;
             gap: 1rem;
+            margin-left: 20px;
         }
 
         .btn-outline {

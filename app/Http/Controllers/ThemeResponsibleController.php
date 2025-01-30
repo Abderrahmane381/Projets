@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class ThemeResponsibleController extends Controller
 {
@@ -233,21 +234,19 @@ class ThemeResponsibleController extends Controller
         return view('theme-responsible.subscriptions', compact('theme', 'subscriptions'));
     }
 
-    public function updateRole(Theme $theme, User $user)
-    {
-        // Double vérification de sécurité
-        if ($theme->responsible_id !== auth()->id()) {
-            abort(403);
-        }
-
-        // Vérifier que l'utilisateur est bien abonné au thème
-        if (!$theme->subscribers()->where('user_id', $user->id)->exists()) {
-            abort(404, "Utilisateur non trouvé dans les abonnés");
-        }
-
-        $user->syncRoles([request('role')]);
+    public function updateRole(Request $request,Theme $theme, User $user)
+    {   
+        $request->validate([
+            'role' => 'required|string|in:guest,subscriber',
+        ]);
         
-        return back()->with('success', 'Rôle mis à jour');
+        // Mettre à jour les rôles de l'utilisateur
+        $user->update(['role' => $request['role']]);
+        $user->save();
+        
+        
+        return back()->with('success', 'Rôle mis à jour pour cet utilisateur.');
+    
     }
 
     public function destroy(Theme $theme, User $user)
