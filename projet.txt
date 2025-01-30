@@ -1,0 +1,16 @@
+Goal: Create a web application using PHP/MySQL to manage an online magazine (Tech Horizons). The application should allow users to view themes they're subscribed to, manage their browsing history, and propose articles for publication. This involves proper analysis and design, creating and managing a database, and providing a web interface to access the application's features.
+
+The web application will manage an online magazine and provide users with an intuitive and secure interface, enabling them to view articles related to their subscribed themes (Artificial Intelligence, Internet of Things, Cybersecurity, Virtual and Augmented Reality...). The application also recommends articles to logged-in users based on their history and interests. During consultation, users can scroll through images of the selected issue, and clicking an image directs them to the corresponding article.
+
+The site is accessed by four types of users:
+
+* Guest: Can only view information about themes, submit registration requests for the magazine, and view public issues.
+* Subscriber: Has a personalized space where they can view all magazine issues, manage theme subscriptions, manage browsing history using filters to find previously viewed articles, and propose articles for publication, with a tracking system to check their status (Rejected, In Progress, Accepted, Published). They can also rate articles from 1 to 5 and add messages to article-related conversations (Chat).
+* Theme Manager: Manages subscriptions related to their theme and its articles, reviews articles posted by subscribers, can potentially propose them for publication in upcoming issues, and view statistics on articles and subscribers of their theme. Also acts as moderator for conversations related to articles in their theme.
+* Tech Horizons Editor: Can manage issues (publish an issue, make public...) and add/modify/block or delete subscribers or theme managers. After publication, they can activate/deactivate an issue or article. They can also view statistics on subscribers, theme managers, issues, themes, and articles.
+
+Tech Horizons aims to explore the most significant technological innovations while highlighting their ethical and societal implications. Additional features can be added to meet the needs of enthusiasts, professionals, and curious individuals eager to understand or share future technological transformations. However, during the development of this web application, priority should be given to the above requirements before considering additional features.
+
+Important:
+
+* Use the Laravel Framework to implement the web application. Provide custom CSS/JavaScript code (Without using jQuery or any CSS Framework (Bootstrap or others)).
