@@ -14,7 +14,7 @@
 
     
 
-    <!-- Add Alpine.js before any other scripts -->
+    
     
 </head>
 <body>

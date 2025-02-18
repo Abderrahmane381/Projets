@@ -23,7 +23,7 @@
                 </div>
                 @auth
                     <div class="meta-actions">
-                    <a href="{{ route('comments.show',$article) }}" class="btn">View Comments</a>
+                    <a href="{{ route('comments.afficher',$article) }}" class="btn">View Comments</a>
                         @can('update', $article)
                             <a href="{{ route('articles.edit', $article) }}" class="btn btn-outline-primary btn-sm">Edit</a>
                         @endcan

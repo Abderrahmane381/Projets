@@ -3,11 +3,7 @@
 @section('title', 'Manage Users')
 
 @section('content')
-@if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
+<div id="flash-messages"></div>
 
 <div class="container">
     <div class="page-header d-flex justify-content-between align-items-center mb-4">
@@ -86,121 +82,5 @@
             </table>
         </div>
     </div>
-
-    <div class="mt-4">
-        {{ $users->links() }}
-    </div>
 </div>
-
-<style>
-.table {
-    margin-bottom: 0;
-}
-
-.table th {
-    background-color: #f8f9fa;
-    border-bottom: 2px solid #dee2e6;
-    font-weight: 600;
-}
-
-.table td {
-    vertical-align: middle;
-}
-
-.form-select {
-    min-width: 140px;
-}
-
-.badge {
-    padding: 0.5em 0.75em;
-    font-weight: 500;
-}
-
-.bg-success {
-    background-color: #10b981 !important;
-}
-
-.bg-danger {
-    background-color: #ef4444 !important;
-}
-
-.btn-sm {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.875rem;
-}
-
-.card {
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
-}
-
-.page-header {
-    background: transparent;
-    padding: 0;
-    color: #1e293b;
-}
-
-.status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.4rem 0.8rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.status-icon {
-    width: 1.25rem;
-    height: 1.25rem;
-}
-
-.status-active {
-    background-color: #dcfce7;
-    color: #166534;
-    border: 1px solid #bbf7d0;
-}
-
-.status-inactive {
-    background-color: #fee2e2;
-    color: #991b1b;
-    border: 1px solid #fecaca;
-}
-
-.status-toggle-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.4rem 1rem;
-    border-radius: 0.375rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
-}
-
-.toggle-deactivate {
-    background-color: #fee2e2;
-    color: #991b1b;
-    border-color: #fecaca;
-}
-
-.toggle-deactivate:hover {
-    background-color: #fecaca;
-    border-color: #ef4444;
-}
-
-.toggle-activate {
-    background-color: #dcfce7;
-    color: #166534;
-    border-color: #bbf7d0;
-}
-
-.toggle-activate:hover {
-    background-color: #bbf7d0;
-    border-color: #22c55e;
-}
-</style>
 @endsection

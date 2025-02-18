@@ -234,19 +234,35 @@ class ThemeResponsibleController extends Controller
         return view('theme-responsible.subscriptions', compact('theme', 'subscriptions'));
     }
 
-    public function updateRole(Request $request,Theme $theme, User $user)
-    {   
-        $request->validate([
-            'role' => 'required|string|in:guest,subscriber',
+    public function updateRole(Request $request, Theme $theme, User $user)
+    {  
+        $validated = $request->validate([
+            'role' => 'required|in:guest,subscriber,theme_responsible,editor'
         ]);
-        
-        // Mettre à jour les rôles de l'utilisateur
-        $user->update(['role' => $request['role']]);
-        $user->save();
-        
-        
-        return back()->with('success', 'Rôle mis à jour pour cet utilisateur.');
     
+        DB::transaction(function () use ($user, $validated) {
+            // Supprimer d'abord tous les rôles existants
+            DB::table('model_has_roles')
+                ->where('model_id', $user->id)
+                ->where('model_type', get_class($user))
+                ->delete();
+            
+            // Récupérer l'ID du rôle
+            $roleId = DB::table('roles')
+                ->where('name', $validated['role'])
+                ->value('id');
+            
+            // Insérer le nouveau rôle
+            if ($roleId) {
+                DB::table('model_has_roles')->insert([
+                    'role_id' => $roleId,
+                    'model_type' => get_class($user),
+                    'model_id' => $user->id
+                ]);
+            }
+        });
+    
+        return back()->with('success', 'Role mis à jour pour cet utilisateur.');
     }
 
     public function destroy(Theme $theme, User $user)

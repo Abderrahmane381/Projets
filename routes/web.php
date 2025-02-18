@@ -131,6 +131,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::delete('/themes/{theme}/subscriptions/{user}', [ThemeResponsibleController::class, 'destroy'])
          ->name('theme-subscriptions.destroy');
+         Route::get('/articles/{article}/chat', [CommentController::class, 'showArticleComments'])->name('chat.moderate');
   
     });
 
@@ -153,7 +154,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/articles/{article}/chat', [CommentController::class, 'store'])->name('comments.store');
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
     Route::patch('/comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
-    Route::get('/articles/{article}/chat', [CommentController::class, 'show'])->name('comments.show');
+    Route::get('/articles/{article}/chat', [CommentController::class, 'show'])->name('comments.afficher');
+    
    
     
    

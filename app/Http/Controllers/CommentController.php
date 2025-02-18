@@ -61,4 +61,13 @@ class CommentController extends Controller
 
         return back()->with('success', 'Comment deleted successfully.');
     }
+    public function showArticleComments(Article $article)
+    {
+        // Récupérer les commentaires de l'article, avec éventuellement une pagination
+        $comments = $article->comments()->paginate(10);
+
+        return view('theme-responsible.comments.article', compact('article', 'comments'));
+    }
+
 }
+

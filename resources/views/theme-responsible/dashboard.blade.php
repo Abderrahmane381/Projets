@@ -37,7 +37,7 @@
                         <span class="subscriber-count">{{ $theme->subscribers_count }} Subscribers</span>
                     </div>
                     <div class="theme-actions">
-                    <a href="{{ route('theme-responsible.subscriptions.index', $theme) }}" class="btn btn-primary"><i class="fas fa-users"></i> Manage Subscribers</a>
+                    <a href="{{ route('theme-responsible.subscriptions.index', $theme) }}" class="btn"><i class="fas fa-users"></i> Manage Subscribers</a>
                         <a href="{{ route('theme-responsible.articles.index', $theme) }}" class="btn">Manage Articles</a>
                         <a href="{{ route('theme-responsible.comments.moderate', $theme) }}" class="btn">Moderate Comments</a>
                         <a href="{{ route('theme-responsible.statistics', $theme) }}" class="btn">View Statistics</a>

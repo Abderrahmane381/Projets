@@ -21,7 +21,7 @@
                 </div>
             </div>
         @empty
-            <div class="empty-state">No messages yet. Start the discussion!</div>
+            <div class="empty-state">No Comments yet. Start the discussion!</div>
         @endforelse
     </div>
 
@@ -29,19 +29,19 @@
         @csrf
         <div class="form-group">
             <textarea name="message" required 
-                placeholder="Type your message here..."
+                placeholder="Type your comment here..."
                 class="chat-input"></textarea>
             @error('message')
                 <span class="error">{{ $message }}</span>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Send Message</button>
+        <button type="submit" class="btn btn-primary">Send Comment</button>
     </form>
 
     @if(auth()->user()->isThemeResponsible() && $article->theme->responsible_id === auth()->id())
         <div class="moderation-link">
             <a href="{{ route('chat.moderate', $article) }}" class="btn btn-outline">
-                Moderate Messages
+                Moderate Comments
             </a>
         </div>
     @endif

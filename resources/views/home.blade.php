@@ -5,12 +5,6 @@
 @section('content')
 
 <div class="container mx-auto px-4 py-8">
-    <!-- Message de succès -->
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
     <!-- Hero Section -->
     <div class="hero-section">
         <div class="max-w-4xl mx-auto text-center text-white">
@@ -81,7 +75,7 @@
                                 </div>
                         
                                 <a href="{{ route('articles.show', $article) }}" 
-                                    class="text-blue-600 hover:text-blue-800 font-medium">
+                                    >
                                     Read More →
                                 </a>
                             </div>
@@ -108,7 +102,7 @@
                         </div>
                         @auth
                             <a href="{{ route('issues.show', $latestIssue) }}" 
-                                class="block text-center bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105">
+                                >
                                 Read Issue
                             </a>
                         @endauth
