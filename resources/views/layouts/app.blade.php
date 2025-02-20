@@ -79,15 +79,22 @@
     <main>
         @if(session('success'))
             <div class="container">
-                <div class="alert alert-success">{{ session('success') }}</div>
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                    <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </div>
             </div>
         @endif
 
         @if(session('error'))
             <div class="container">
-                <div class="alert alert-error">{{ session('error') }}</div>
+                <div class="alert alert-error">
+                    {{ session('error') }}
+                    <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                </div>
             </div>
         @endif
+
 
         @yield('content')
     </main>

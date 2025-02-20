@@ -1541,3 +1541,58 @@ select.form-control {
     background-color: #bbf7d0;
     border-color: #22c55e;
 }
+/* Style général pour les alertes */
+.alert {
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+/* Succès : couleur verte */
+.alert-success {
+    background-color: #d4edda;
+    border-left: 6px solid #28a745;
+    color: #155724;
+}
+
+/* Erreur : couleur rouge */
+.alert-error {
+    background-color: #f8d7da;
+    border-left: 6px solid #dc3545;
+    color: #721c24;
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bouton de fermeture */
+.alert .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    color: inherit;
+}
+
+.alert .close-btn:hover {
+    opacity: 0.7;
+}
