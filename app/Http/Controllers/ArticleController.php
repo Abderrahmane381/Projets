@@ -110,7 +110,7 @@ class ArticleController extends Controller
             ]);
 
             return redirect()->route('articles.show', $article)
-                ->with('success', 'Article created successfully');
+                ->with('success', 'Article created successfully , Status : Pending Review  ');
 
         } catch (\Exception $e) {
             Log::error('Article creation failed: ' . $e->getMessage());
