@@ -28,8 +28,8 @@
                                 <strong>{{ $issue->title }}</strong>
                                 <div class="text-muted small">{{ Str::limit($issue->description, 50) }}</div>
                             </td>
-                            <td><span class="badge bg-info">{{ $issue->articles->count() }}</span></td>
-                            <td>{{ $issue->published_at?->format('M d, Y') ?? 'Not Published' }}</td>
+                            <td align="center">{{ $issue->articles->count() }}</td>
+                            <td>{{ $issue->publication_date?->format('M d, Y') ?? 'Not Published' }}</td>
                             <td>
                                 <span class="status-badge {{ $issue->is_public ? 'status-active' : 'status-inactive' }}">
                                     {{ $issue->is_public ? 'Public' : 'Private' }}

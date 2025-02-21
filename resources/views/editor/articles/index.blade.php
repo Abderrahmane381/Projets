@@ -68,6 +68,7 @@
 }
 
 .table th, .table td {
+    border-bottom: 2px solid #e5e7eb;
     vertical-align: middle;
     text-align: center;
 }
@@ -97,5 +98,10 @@
 .table-hover tbody tr:hover {
     background-color: #f9fafb;
 }
+
+
+
+
+
 </style>
 @endsection
